@@ -1,0 +1,109 @@
+/* Import variables from _variables.scss */
+@use "variables";
+
+/* --- Mulish Regular --- */
+@font-face {
+    font-family: 'Mulish';
+    src: url('../fonts/Mulish-VariableFont_wght.ttf') format('truetype-variations');
+    font-weight: 200 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* --- Mulish Italic --- */
+@font-face {
+    font-family: 'Mulish';
+    src: url('../fonts/Mulish-Italic-VariableFont_wght.ttf') format('truetype-variations');
+    font-weight: 200 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+// Site-wide Defaults
+body {
+    // Font Size & Bg Colors
+    font-family: 'Mulish', Verdana, sans-serif;
+    font-size: 16px;
+    background-color: var(--color-neutral-0);
+
+    // Base Screen Size
+    display: flex;
+    flex-direction: column;
+    min-width: 402px; /* For 16/17pro */
+}
+
+// Font Properties
+h1, h2, h3, h4, h5 {
+    font-weight: var(--text-weight-semibold);
+    line-height: var(--text-line-height-heading);
+    color: var(--color-neutral-900);
+}
+
+h1 {
+    font-size: var(--text-size-h1);
+}
+
+h2 {
+    font-size: var(--text-size-h2);
+}
+
+h3 {
+    font-size: var(--text-size-h3);
+}
+
+h4 {
+    font-size: var(--text-size-h4);
+}
+
+h5 {
+    font-size: var(--text-size-h5);
+}
+
+p {
+    font-size: var(--text-size-body);
+    font-weight: var(--text-weight-regular);
+    line-height: var(--text-line-height-regular);
+    color: var(--color-neutral-900);
+}
+
+.subtitle {
+    font-size: var(--text-size-subtitle);
+}
+
+// Components
+.nav-btn {
+    display: block;
+    text-transform: uppercase;
+    text-align: center;
+    text-decoration: none;
+
+    width: max-content;
+    gap: 0.5rem;
+    padding: 0.5rem 0.8rem;
+    min-height: 1rem;
+}
+
+.social-btn {
+    display: block;
+    text-transform: capitalize;
+    text-align: center;
+    text-decoration: none;
+
+    width: max-content;
+    gap: 0.5rem;
+    padding: 0.5rem 0.8rem;
+    min-height: 1rem;
+}
+
+.tab-btn {
+    display: block;
+    text-transform: capitalize;
+    text-align: center;
+
+    width: max-content;
+    gap: 0.5rem;
+    padding: 0.2rem 0.8rem;
+
+    border: var(--border-inverted);
+    border-radius: 2rem;
+}
