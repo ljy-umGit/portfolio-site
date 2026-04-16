@@ -30,8 +30,32 @@
     --border-default: 1px solid var(--color-neutral-900);
     --border-inverted: 1px solid var(--color-neutral-0);
 
-    //Padding & Margin
-    --default-page-padding: 0 4rem 0 4rem;
+    //Section Divider
+    --divider-line: 2px solid var(--color-neutral-0);
+
+    //Spacing
+    --space-0: 0;
+    --space-1: 0.25rem;  /* 4px  */
+    --space-2: 0.5rem;   /* 8px  */
+    --space-3: 0.75rem;  /* 12px */
+    --space-4: 1rem;     /* 16px */
+    --space-5: 1.25rem;  /* 20px */
+    --space-6: 1.5rem;   /* 24px */
+    --space-8: 2rem;     /* 32px */
+    --space-10: 2.5rem;  /* 40px */
+    --space-12: 3rem;    /* 48px */
+    --space-16: 4rem;    /* 64px */
+    --space-20: 5rem;    /* 80px */
+    --space-24: 6rem;    /* 96px */
+
+    // Senmatic Spacing
+    --space-inline-page: var(--space-8);
+    --space-section-y: var(--space-16);
+    --space-card-padding: var(--space-16);
+    --space-stack-sm: var(--space-2);
+    --space-stack-md: var(--space-4);
+    --space-stack-lg: var(--space-6);
+    --space-gap-inline: var(--space-3);
 
     //Project-specific Colors Below
 }
@@ -42,5 +66,5 @@ html[data-theme="minimal-solaris"] {
     --flare: #ff9721;
 
     //Gradient
-    --solar-gradient: linear-gradient(135deg, var(--flare) 0%, var(--solar) 75%);
+    --solar-gradient: linear-gradient(135deg, var(--flare) 0%, var(--solar) 65%);
 }

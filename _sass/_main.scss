@@ -79,7 +79,7 @@ p {
     text-align: center;
     text-decoration: none;
 
-    font-size: var(--text-size-h3);
+    font-size: var(--text-size-h4);
     color: var(--color-neutral-0);
     width: max-content;
     gap: 0.5rem;
@@ -94,6 +94,8 @@ p {
     text-align: center;
     text-decoration: none;
 
+    font-size: var(--text-size-h4);
+    color: var(--color-neutral-0);
     width: max-content;
     gap: 0.5rem;
     padding: 0.5rem 0.8rem;
@@ -136,16 +138,18 @@ p {
     text-decoration: none;
 }
 
+.divider-line {
+    width: 100%;
+    border-top: var(--divider-line);
+}
+
 // Hero Section
 .hero {
     display: flex;
     flex-direction: column;
     background: var(--solar-gradient);
-
-    width: 100%;
     height: 100vh;
-
-    padding: var(--default-page-padding);
+    padding: var(--space-card-padding);
 }
 
 // Case Studies
