@@ -30,6 +30,9 @@
     --border-default: 1px solid var(--color-neutral-900);
     --border-inverted: 1px solid var(--color-neutral-0);
 
+    //Padding & Margin
+    --default-page-padding: 0 4rem 0 4rem;
+
     //Project-specific Colors Below
 }
 
@@ -37,4 +40,7 @@ html[data-theme="minimal-solaris"] {
     // Primary Palette
     --solar: #ff5b29;
     --flare: #ff9721;
+
+    //Gradient
+    --solar-gradient: linear-gradient(135deg, var(--flare) 0%, var(--solar) 75%);
 }

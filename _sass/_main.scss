@@ -1,5 +1,7 @@
 /* Import variables from _variables.scss */
 @use "variables";
+@use "header";
+@use "footer";
 
 /* --- Mulish Regular --- */
 @font-face {
@@ -77,6 +79,8 @@ p {
     text-align: center;
     text-decoration: none;
 
+    font-size: var(--text-size-h3);
+    color: var(--color-neutral-0);
     width: max-content;
     gap: 0.5rem;
     padding: 0.5rem 0.8rem;
@@ -84,7 +88,8 @@ p {
 }
 
 .social-btn {
-    display: block;
+    display: flex;
+    flex-direction: row;
     text-transform: capitalize;
     text-align: center;
     text-decoration: none;
@@ -96,7 +101,8 @@ p {
 }
 
 .tab-btn {
-    display: block;
+    display: flex;
+    flex-direction: row;
     text-transform: capitalize;
     text-align: center;
 
@@ -106,4 +112,48 @@ p {
 
     border: var(--border-inverted);
     border-radius: 2rem;
+    background-color: transparent;
+}
+
+.tab-btn > p{
+    color: var(--color-neutral-0);
+}
+
+.tab-btn:hover, .tab-btn:focus, .tab-btn:active {
+    background-color: var(--color-neutral-0);
+
+    > p {
+        color: var(--solar, var(--text-color-inverse));
+    }
+}
+
+.link-btn {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    padding: 0.2rem 0.2rem;
+    width: max-content;
+    text-decoration: none;
+}
+
+// Hero Section
+.hero {
+    display: flex;
+    flex-direction: column;
+    background: var(--solar-gradient);
+
+    width: 100%;
+    height: 100vh;
+
+    padding: var(--default-page-padding);
+}
+
+// Case Studies
+.case-studies {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    height: max-content;
+    padding: var(--default-page-padding);
 }
