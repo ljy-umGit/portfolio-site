@@ -1,6 +1,7 @@
 @use "variables";
 
 footer {
+    position: relative;
     display: flex;
     flex-direction: column;
     gap: var(--space-stack-md);
@@ -24,11 +25,11 @@ footer {
 
         .social-links-contain {
             display: flex;
-            flex-direction: column;
+            flex-wrap: wrap;
             list-style-type: none;
             margin: 0;
             padding: 0;
-            gap: var(--space-stack-sm);
+            gap: var(--space-stack-lg);
         }
     }
 }

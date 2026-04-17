@@ -13,9 +13,10 @@
     --text-size-h5: 1.25rem;
 
     // Text weights
+    --text-weight-thin: 300;
     --text-weight-regular: 400;
-    --text-weight-semibold: 500;
-    --text-weight-bold: 700;
+    --text-weight-semibold: 600;
+    --text-weight-bold: 800;
 
     // Text line heights
     --text-line-height-regular: 1.8;
@@ -32,6 +33,7 @@
 
     //Section Divider
     --divider-line: 2px solid var(--color-neutral-0);
+    --divider-line-inverted: 2px solid var(--color-neutral-900);
 
     //Spacing
     --space-0: 0;
@@ -58,6 +60,10 @@
     --space-gap-inline: var(--space-3);
 
     //Project-specific Colors Below
+    --drill-gradient: linear-gradient(150deg, #2875d0 0%, #ef6c6d 100%);
+    --fileworks-gradient: linear-gradient(150deg, #e7f2ff 0%, #e7f2ff 100%);
+    --bfhr-gradient: linear-gradient(150deg, #508fd9 0%, #403294 100%);
+    // --godeals-gradient: linear-gradient(150deg, #19D2BC 0%, #BAF1EB 100%);
 }
 
 html[data-theme="minimal-solaris"] {

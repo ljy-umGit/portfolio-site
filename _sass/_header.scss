@@ -1,19 +1,16 @@
 @use "variables";
 
-.site-header {
+header {
+    position: fixed;
+
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-
-    position: fixed;
-    box-sizing: border-box;
-    top: 0;
-    left: 0;
-    right: 0;
+    inset: 0 0 auto 0;
     z-index: 999;
 
-    padding: var(--space-8) var(--space-16);
+    padding: var(--space-6) var(--space-16);
     backdrop-filter: blur(6px);
 
     .logo {
@@ -43,7 +40,6 @@
         .style-switch {
             position: relative;
             display: block;
-            padding-right: var(--space-3);
 
             select {
                 appearance: none;
@@ -61,6 +57,10 @@
                 border: var(--border-inverted);
                 border-radius: 0.25rem;
                 cursor: pointer;
+
+                option {
+                    text-align: center;
+                }
             }
         }
 
