@@ -157,6 +157,18 @@ p {
     border-top: var(--divider-line-inverted);
 }
 
+@keyframes blink {
+    0%,
+    49% {
+        opacity: 1;
+    }
+
+    50%,
+    100% {
+        opacity: 0;
+    }
+}
+
 // Homepage Background
 .background-home {
     position: fixed;
@@ -192,6 +204,7 @@ p {
     display: flex;
     flex-direction: column;
     background: var(--solar-gradient);
+    background: linear-gradient(rgba(252, 252, 252, 20%), rgba(252, 252, 252, 20%)), var(--solar-gradient);
     padding: var(--space-card-padding);
     box-sizing: border-box;
     min-height: 100vh;
@@ -204,9 +217,24 @@ p {
     .hero-bg {
         display: flex;
         flex-direction: column;
-        gap: var(--space-stack-lg);
+        gap: var(--space-stack-md);
         padding-bottom: var(--space-8);
         align-items: flex-start;
+
+        #typed-strings {
+            display: none;
+        }
+
+        #typed {
+            display: inline;
+        }
+
+        #typed::after {
+            content: ".";
+            display: inline-block;
+            margin-left: 0.06em;
+            animation: blink 1s step-end infinite;
+        }
 
         .intro-tabs {
             display: flex;
