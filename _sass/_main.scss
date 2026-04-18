@@ -104,14 +104,37 @@ p {
     border: var(--border-inverted);
     border-radius: 2rem;
     background-color: transparent;
+
+    // Fill effect setup
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    transition: transform var(--header-transition-duration) var(--header-transition-ease);
 }
 
 .tab-btn > p{
+    position: relative;
+    z-index: 1;
     color: var(--color-neutral-0);
+    transition: color var(--header-transition-duration) var(--header-transition-ease);
+}
+
+.tab-btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background-color: var(--color-neutral-0);
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform var(--header-transition-duration) var(--header-transition-ease);
+    z-index: 0;
 }
 
 .tab-btn.active {
-    background-color: var(--color-neutral-0);
+    &::before {
+        transform: scaleX(1);
+    }
 
     > p {
         color: var(--solar, var(--text-color-inverse));
@@ -119,11 +142,33 @@ p {
 }
 
 .tab-btn:hover, .tab-btn:focus, .tab-btn:active {
-    background-color: var(--color-neutral-0);
+    &::before {
+        transform: scaleX(1);
+    }
 
     > p {
         color: var(--solar, var(--text-color-inverse));
     }
+}
+
+// Subtle horizontal push effect between sibling tab buttons
+.tab-controls {
+    --tab-push-distance: 0.25rem;
+}
+
+.tab-controls .tab-btn:hover,
+.tab-controls .tab-btn:focus-visible {
+    transform: var(--button-transform-hover);
+}
+
+.tab-controls .tab-btn:hover ~ .tab-btn,
+.tab-controls .tab-btn:focus-visible ~ .tab-btn {
+    transform: translateX(var(--tab-push-distance));
+}
+
+.tab-controls .tab-btn:has(~ .tab-btn:hover),
+.tab-controls .tab-btn:has(~ .tab-btn:focus-visible) {
+    transform: translateX(calc(var(--tab-push-distance) * -1));
 }
 
 .link-btn {
@@ -139,6 +184,14 @@ p {
     @extend .link-btn;
     background-color: transparent;
     border: none;
+
+    //Animation
+    transform: var(--button-transform-normal);
+    transition: var(--button-transition),
+}
+
+.scroll-btn:hover {
+    transform: var(--button-transform-hover);
 }
 
 .divider-line {
@@ -159,6 +212,18 @@ p {
     50%,
     100% {
         opacity: 0;
+    }
+}
+
+@keyframes tabItemIn {
+    from {
+        opacity: 0;
+        transform: translateY(0.50rem);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
@@ -233,7 +298,6 @@ p {
 
             .tab-viewport {
                 width: 50%;
-                max-height: fit-content;
                 overflow: hidden;
 
                 .tab-item {
@@ -242,6 +306,7 @@ p {
 
                 .tab-item.active{
                     display: block;
+                    animation: tabItemIn var(--header-transition-duration) var(--header-transition-ease);
                 }
 
                 .intro-item {

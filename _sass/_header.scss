@@ -11,7 +11,7 @@ header {
     z-index: 999;
 
     padding: var(--space-6) var(--space-16);
-    backdrop-filter: blur(6px);
+    backdrop-filter: blur(10px);
 
     .logo {
         height: max-content;
@@ -108,9 +108,18 @@ header {
             gap: 0.5rem;
             padding: 0.5rem 0.8rem;
             min-height: 1rem;
-            transition: color var(--header-transition-duration) var(--header-transition-ease),
+
+            //Animation
+            transform: var(--button-transform-normal);
+            transition: var(--button-transition),
+                color var(--header-transition-duration) var(--header-transition-ease),
                 background-color var(--header-transition-duration) var(--header-transition-ease),
                 border-color var(--header-transition-duration) var(--header-transition-ease);
+        }
+
+        .nav-btn:hover {
+            color: var(--color-neutral-900);
+            transform: var(--button-transform-hover);
         }
     }
 }

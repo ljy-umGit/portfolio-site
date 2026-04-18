@@ -43,19 +43,86 @@ document.addEventListener("DOMContentLoaded", () => {
   // Hero page Tab Switching
   const tabButtons = document.querySelectorAll(".tab-btn");
   const tabItems = document.querySelectorAll(".tab-item");
+  const tabViewport = document.querySelector(".tab-viewport");
+  let tabHeightAnimationFrame = null;
+
+  const updateTabViewportHeight = () => {
+    if (!tabViewport) {
+      return;
+    }
+
+    const activeItem = document.querySelector(".tab-item.active");
+    if (activeItem) {
+      tabViewport.style.height = `${activeItem.offsetHeight}px`;
+    }
+  };
+
+  const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
+
+  const tweenTabViewportHeight = (startHeight, endHeight) => {
+    if (!tabViewport) {
+      return;
+    }
+
+    if (tabHeightAnimationFrame) {
+      cancelAnimationFrame(tabHeightAnimationFrame);
+      tabHeightAnimationFrame = null;
+    }
+
+    const durationMs = 500;
+    const startTime = performance.now();
+
+    const step = (now) => {
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / durationMs, 1);
+      const eased = easeOutCubic(progress);
+      const currentHeight = startHeight + (endHeight - startHeight) * eased;
+      tabViewport.style.height = `${currentHeight}px`;
+
+      if (progress < 1) {
+        tabHeightAnimationFrame = requestAnimationFrame(step);
+      } else {
+        tabViewport.style.height = "auto";
+        tabHeightAnimationFrame = null;
+      }
+    };
+
+    tabHeightAnimationFrame = requestAnimationFrame(step);
+  };
+
+  updateTabViewportHeight();
+  window.addEventListener("resize", updateTabViewportHeight);
 
   tabButtons.forEach((button) => {
     button.addEventListener("click", () => {
       const tabIndex = Number(button.getAttribute("data-index"));
+      const nextItem = tabItems[tabIndex];
+      const currentActiveItem = document.querySelector(".tab-item.active");
+      let startHeight = 0;
+
+      if (!nextItem || nextItem.classList.contains("active")) {
+        return;
+      }
+
+      if (tabViewport) {
+        startHeight = currentActiveItem ? currentActiveItem.offsetHeight : tabViewport.offsetHeight;
+        tabViewport.style.height = `${startHeight}px`;
+        void tabViewport.offsetHeight;
+      }
 
       // Remove active class from all items and buttons
       tabItems.forEach((item) => item.classList.remove("active"));
       tabButtons.forEach((btn) => btn.classList.remove("active"));
 
       // Add active class to the selected index
-      if (tabItems[tabIndex]) {
-        tabItems[tabIndex].classList.add("active");
+      if (nextItem) {
+        nextItem.classList.add("active");
         button.classList.add("active");
+
+        if (tabViewport) {
+          const endHeight = nextItem.offsetHeight;
+          tweenTabViewportHeight(startHeight, endHeight);
+        }
       }
     });
   });
