@@ -1,7 +1,7 @@
 /* Import variables from _variables.scss */
-@use "variables";
-@use "header";
-@use "footer";
+@import "variables";
+@import "header";
+@import "footer";
 
 /* --- Mulish Regular --- */
 @font-face {
