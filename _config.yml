@@ -1,3 +1,5 @@
 title: "Junyan's Design Hub"
 theme: jekyll-theme-minimal
 markdown: kramdown
+url: "https://ljy-umgit.github.io"
+baseurl: "/portfolio-site"
