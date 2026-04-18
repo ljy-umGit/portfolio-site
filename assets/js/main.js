@@ -5,6 +5,20 @@ document.addEventListener("DOMContentLoaded", () => {
     currentYear.textContent = new Date().getFullYear();
   }
 
+  // Theme Switcher
+  const themeSelect = document.getElementById("styles");
+  if(themeSelect) {
+    // Set initial theme from select value
+    const initialTheme = themeSelect.value || "solaris";
+    document.documentElement.setAttribute("data-theme", `minimal-${initialTheme}`);
+
+    // Listen for changes
+    themeSelect.addEventListener("change", function() {
+      const selectedTheme = this.value;
+      document.documentElement.setAttribute("data-theme", `minimal-${selectedTheme}`);
+    });
+  }
+
   // Typed.js H1 on homepage
   const typedTarget = document.getElementById("typed");
   const typedStrings = document.getElementById("typed-strings");
@@ -45,4 +59,36 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
+
+  // GSAP Animations
+  gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+
+  ScrollSmoother.create({
+    smooth: 1.5,
+    effects: true,
+    smoothTouch: 0.2,
+    normalizeScroll: true,
+  });
+
+  //Homepage Scroll Buttons
+  const scrollDownBtn = document.getElementById("scroll-down");
+  const scrollUpBtn = document.getElementById("scroll-up");
+
+  let smoothScrollTo = ScrollSmoother.create({
+    smooth: 2,
+    effects: true,
+    normalizeScroll: true,
+  })
+
+  if(scrollDownBtn) {
+    scrollDownBtn.addEventListener("click", function(){
+      smoothScrollTo.scrollTo(".cards-contain", true, "top 192px")
+    })
+  }
+
+  if(scrollUpBtn) {
+    scrollUpBtn.addEventListener("click", function(){
+      smoothScrollTo.scrollTo("#section-hero", true, "top top")
+    })
+  }
 });

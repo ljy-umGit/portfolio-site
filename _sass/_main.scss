@@ -148,6 +148,12 @@ p {
     text-decoration: none;
 }
 
+.scroll-btn {
+    @extend .link-btn;
+    background-color: transparent;
+    border: none;
+}
+
 .divider-line {
     width: 100%;
     border-top: var(--divider-line);
@@ -203,8 +209,7 @@ p {
 .hero {
     display: flex;
     flex-direction: column;
-    background: var(--solar-gradient);
-    background: linear-gradient(rgba(252, 252, 252, 20%), rgba(252, 252, 252, 20%)), var(--solar-gradient);
+    background: linear-gradient(rgba(252, 252, 252, 25%), rgba(252, 252, 252, 25%)), var(--solar-gradient);
     padding: var(--space-card-padding);
     box-sizing: border-box;
     min-height: 100vh;
@@ -267,7 +272,7 @@ p {
         }
     }
 
-    .skip-content {
+    .scroll-to-content {
         display: flex;
         flex-direction: row;
         gap: var(--space-stack-md);
@@ -365,7 +370,7 @@ p {
         }
     }
 
-    .skip-top {
+    .scroll-to-top {
         display: flex;
         flex-direction: row;
         gap: var(--space-stack-md);

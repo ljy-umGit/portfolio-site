@@ -6,7 +6,7 @@ footer {
     flex-direction: column;
     gap: var(--space-stack-md);
     padding: var(--space-card-padding);
-    background: var(--solar-gradient);
+    background: linear-gradient(rgba(252, 252, 252, 20%), rgba(252, 252, 252, 20%)), var(--solar-gradient);
 
     h2 {
         display: flex;
