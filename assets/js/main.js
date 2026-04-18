@@ -1,5 +1,3 @@
-/* global Typed */
-
 document.addEventListener("DOMContentLoaded", () => {
   // Dynamic year display in the footer
   const currentYear = document.getElementById("current-year");
@@ -27,4 +25,24 @@ document.addEventListener("DOMContentLoaded", () => {
       typedTarget.textContent = firstString.textContent;
     }
   }
+
+  // Hero page Tab Switching
+  const tabButtons = document.querySelectorAll(".tab-btn");
+  const tabItems = document.querySelectorAll(".tab-item");
+
+  tabButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const tabIndex = Number(button.getAttribute("data-index"));
+
+      // Remove active class from all items and buttons
+      tabItems.forEach((item) => item.classList.remove("active"));
+      tabButtons.forEach((btn) => btn.classList.remove("active"));
+
+      // Add active class to the selected index
+      if (tabItems[tabIndex]) {
+        tabItems[tabIndex].classList.add("active");
+        button.classList.add("active");
+      }
+    });
+  });
 });
