@@ -24,7 +24,7 @@
 
     // Text colors
     --text-color-default: var(--color-neutral-0);
-    --text-color-inverse: var(--color-neutral-900);
+    --text-color-inverted: var(--color-neutral-900);
     --text-color-secondary: var(--color-neutral-400);
 
     //Border
@@ -58,6 +58,10 @@
     --space-stack-md: var(--space-4);
     --space-stack-lg: var(--space-6);
     --space-gap-inline: var(--space-3);
+
+    //Transition Effects
+    --header-transition-duration: 0.5s;
+    --header-transition-ease: ease;
 
     //Project-specific Colors Below
     --drill-gradient: linear-gradient(150deg, #2875d0 0%, #ef6c6d 100%);

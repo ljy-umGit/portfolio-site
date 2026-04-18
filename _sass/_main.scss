@@ -75,19 +75,6 @@ p {
 }
 
 // Components
-.nav-btn {
-    display: block;
-    text-transform: uppercase;
-    text-align: center;
-    text-decoration: none;
-
-    font-size: var(--text-size-h4);
-    color: var(--color-neutral-0);
-    width: max-content;
-    gap: 0.5rem;
-    padding: 0.5rem 0.8rem;
-    min-height: 1rem;
-}
 
 .social-btn {
     display: flex;

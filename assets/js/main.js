@@ -60,25 +60,31 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // GSAP Animations
+// GSAP Animations
   gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
-  ScrollSmoother.create({
-    smooth: 1.5,
+  const smoothScrollTo = ScrollSmoother.create({
+    smooth: 2,
     effects: true,
     smoothTouch: 0.2,
     normalizeScroll: true,
   });
 
+  //Header Color Change
+  ScrollTrigger.create({
+    trigger: ".case-studies",
+    start: "top 96px" ,
+    end: "bottom 96px",
+
+    toggleClass: {
+      targets: "header",
+      className: "nav-alt-color"
+    }
+  })
+
   //Homepage Scroll Buttons
   const scrollDownBtn = document.getElementById("scroll-down");
   const scrollUpBtn = document.getElementById("scroll-up");
-
-  let smoothScrollTo = ScrollSmoother.create({
-    smooth: 2,
-    effects: true,
-    normalizeScroll: true,
-  })
 
   if(scrollDownBtn) {
     scrollDownBtn.addEventListener("click", function(){

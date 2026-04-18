@@ -16,16 +16,31 @@ header {
     .logo {
         height: max-content;
 
+        .homepage-link {
+            display: grid;
+            align-items: center;
+        }
+
         .logo-wht {
             display: block;
+            grid-area: 1 / 1;
             width: auto;
             height: 2rem;
-
+            opacity: 1;
+            visibility: visible;
+            transition: opacity var(--header-transition-duration) var(--header-transition-ease),
+                visibility var(--header-transition-duration) var(--header-transition-ease);
         }
+
         .logo-blk {
-            display: none;
+            display: block;
+            grid-area: 1 / 1;
             width: auto;
             height: 2rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity var(--header-transition-duration) var(--header-transition-ease),
+                visibility var(--header-transition-duration) var(--header-transition-ease);
         }
     }
 
@@ -57,6 +72,9 @@ header {
                 border: var(--border-inverted);
                 border-radius: 0.25rem;
                 cursor: pointer;
+                transition: color var(--header-transition-duration) var(--header-transition-ease),
+                    border-color var(--header-transition-duration) var(--header-transition-ease),
+                    background-color var(--header-transition-duration) var(--header-transition-ease);
 
                 option {
                     text-align: center;
@@ -76,6 +94,48 @@ header {
         .style-switch:focus-visible {
             outline: 2px solid var(--color-neutral-900);
             outline-offset: 2px;
+        }
+
+        .nav-btn {
+            display: block;
+            text-transform: uppercase;
+            text-align: center;
+            text-decoration: none;
+
+            font-size: var(--text-size-h4);
+            color: var(--color-neutral-0);
+            width: max-content;
+            gap: 0.5rem;
+            padding: 0.5rem 0.8rem;
+            min-height: 1rem;
+            transition: color var(--header-transition-duration) var(--header-transition-ease),
+                background-color var(--header-transition-duration) var(--header-transition-ease),
+                border-color var(--header-transition-duration) var(--header-transition-ease);
+        }
+    }
+}
+
+//Flips on when GSAP adds .nav-alt-color to header
+header.nav-alt-color {
+
+    .logo .logo-wht {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .logo .logo-blk {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .nav-container {
+        select {
+            color: var(--text-color-inverted);
+            border: var(--border-default);
+        }
+
+        .nav-btn {
+            color: var(--color-neutral-900);
         }
     }
 }
