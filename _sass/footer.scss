@@ -23,6 +23,10 @@ footer {
         flex-direction: column;
         gap: var(--space-gap-inline);
 
+        h2 > span:last-of-type {
+            display: none;
+        }
+
         .social-links-contain {
             display: flex;
             flex-wrap: wrap;
@@ -31,5 +35,25 @@ footer {
             padding: 0;
             gap: var(--space-stack-lg);
         }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    footer .reachout-contain {
+        display: grid;
+        grid-template-columns: auto auto;
+
+        h2 > span:last-of-type {
+            display: inline-block;
+        }
+
+        h2 > span:first-of-type {
+            display: none;
+        }
+    }
+
+    footer .social-links-contain {
+        justify-content: flex-end;
+        align-items: center;
     }
 }

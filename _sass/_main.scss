@@ -177,11 +177,9 @@ p {
 
 // Homepage Background
 .background-home {
-    position: fixed;
-    top: 0;
-    left: 0;
+    position: absolute;
+    inset: 0;
     overflow: hidden;
-    position: fixed;
     z-index: -999;
     width: 100vw;
     height: 100vh;
@@ -295,6 +293,7 @@ p {
 
 // Case Studies
 .case-studies {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
