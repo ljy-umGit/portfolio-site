@@ -144,7 +144,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 // GSAP Animations
-  gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+  gsap.registerPlugin(ScrollTrigger, ScrollSmoother, SplitText);
 
   const smoothScrollTo = ScrollSmoother.create({
     smooth: 2,
@@ -165,6 +165,18 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   })
 
+  // Sticky Project Section Bg
+  ScrollTrigger.create({
+    trigger: ".background-home",
+    start: "top top",
+    endTrigger: ".case-studies",
+    end: "bottom bottom",
+    pin: true,
+    pinSpacing: false,
+    anticipatePin: 1,
+    invalidateOnRefresh: true,
+  })
+
   //Homepage Scroll Buttons
   const scrollDownBtn = document.getElementById("scroll-down");
   const scrollUpBtn = document.getElementById("scroll-up");
@@ -180,4 +192,16 @@ document.addEventListener("DOMContentLoaded", () => {
       smoothScrollTo.scrollTo("#section-hero", true, "top top")
     })
   }
+
+  // Case Study Intro Scroll into View
+  // let splitIntro = SplitText.create(".oversize", { type: "lines" });
+  // gsap.from (splitIntro.lines, {
+  //   y: 100,
+  //   autoAlpha: 0,
+  //   repeat: -1,
+  //   stagger: {
+  //     amount: 0.5,
+  //     from: "random"
+  //   }
+  // })
 });
