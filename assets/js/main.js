@@ -144,7 +144,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 // GSAP Animations
-  gsap.registerPlugin(ScrollTrigger, ScrollSmoother, SplitText);
+  gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
   const smoothScrollTo = ScrollSmoother.create({
     smooth: 2,
@@ -192,16 +192,4 @@ document.addEventListener("DOMContentLoaded", () => {
       smoothScrollTo.scrollTo("#section-hero", true, "top top")
     })
   }
-
-  // Case Study Intro Scroll into View
-  // let splitIntro = SplitText.create(".oversize", { type: "lines" });
-  // gsap.from (splitIntro.lines, {
-  //   y: 100,
-  //   autoAlpha: 0,
-  //   repeat: -1,
-  //   stagger: {
-  //     amount: 0.5,
-  //     from: "random"
-  //   }
-  // })
 });
