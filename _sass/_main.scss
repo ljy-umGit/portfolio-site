@@ -21,6 +21,23 @@
     font-display: swap;
 }
 
+// Custom Cursor
+html, body, body * {
+        //Replace cursor w/ custom cursor on regular devices
+    cursor: none !important;
+}
+
+// Disable custom cursor on touch device
+@media (hover: none), (pointer: coarse) {
+html, body, body * {
+    cursor: auto !important;
+    }
+
+    .cursor {
+        display: none;
+    }
+}
+
 // Site-wide Defaults
 body {
     position: relative;
@@ -159,6 +176,23 @@ p {
     }
 }
 
+// Custom Cursor Styling
+.cursor{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 3rem;
+    height: 3rem;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(244, 245, 247, 0.8);
+    backdrop-filter: blur(4px);
+    box-shadow: 1px 1px 12px 1px rgba(100, 100, 100, 0.15);
+    border-radius: 100%;
+    pointer-events: none;
+    transform: translate(-9999px, -9999px);
+    z-index: 9999;
+}
+
 // Subtle horizontal push effect between sibling tab buttons
 .tab-controls {
     --tab-push-distance: 0.25rem;
@@ -265,9 +299,10 @@ p {
 
 // Hero Section
 .hero {
+    position: relative;
     display: flex;
     flex-direction: column;
-    background: linear-gradient(rgba(252, 252, 252, 25%), rgba(252, 252, 252, 25%)), var(--solar-gradient);
+    background: linear-gradient(rgba(252, 252, 252, 0.2), rgba(252, 252, 252, 0.2)), var(--solar-gradient);
     padding: var(--space-card-padding);
     box-sizing: border-box;
     min-height: 100vh;
@@ -277,7 +312,7 @@ p {
         color: var(--color-neutral-0);
     }
 
-    .hero-bg {
+    .hero-content {
         display: flex;
         flex-direction: column;
         gap: var(--space-stack-md);

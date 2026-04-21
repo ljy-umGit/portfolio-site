@@ -17,6 +17,12 @@ header {
         .homepage-link {
             display: grid;
             align-items: center;
+            transition: var(--button-transition);
+        }
+
+        .homepage-link:hover {
+            transform: var(--button-transform-hover);
+            transition: var(--button-transition);
         }
 
         .logo-wht {
@@ -53,6 +59,7 @@ header {
         .style-switch {
             position: relative;
             display: block;
+            transition: var(--button-transition);
 
             select {
                 appearance: none;
@@ -83,6 +90,9 @@ header {
         .style-switch:hover {
             background-color: var(--color-neutral-0);
             border-radius: 0.25rem;
+
+            transform: var(--button-transform-hover);
+            transition: var(--button-transition);
 
             select {
                 color: var(--solar, var(--text-color-inverse));

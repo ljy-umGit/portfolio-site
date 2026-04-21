@@ -18,6 +18,22 @@ document.addEventListener("DOMContentLoaded", () => {
       document.documentElement.setAttribute("data-theme", `minimal-${selectedTheme}`);
     });
   }
+  // Custom Cursor
+  const cursor = document.querySelector(".cursor");
+  if (cursor) {
+    let halfW = cursor.offsetWidth / 2;
+    let halfH = cursor.offsetHeight / 2;
+
+    const updateSize = () => {
+      halfW = cursor.offsetWidth / 2;
+      halfH = cursor.offsetHeight / 2;
+    };
+
+    window.addEventListener("resize", updateSize);
+    window.addEventListener("mousemove", (e) => {
+      cursor.style.transform = `translate3d(${e.clientX - halfW}px, ${e.clientY - halfH}px, 0)`;
+    })
+  }
 
   // Typed.js H1 on homepage
   const typedTarget = document.getElementById("typed");
