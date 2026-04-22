@@ -81,11 +81,8 @@ header {
 
         .nav-items {
             position: fixed;
-            top: var(--mobile-menu-top-offset);
-            right: 0;
-            left: 0;
-            height: auto;
-            max-height: calc(100dvh - var(--mobile-menu-top-offset));
+            inset: var(--mobile-menu-top-offset) 0 0 0;
+            height: calc(100dvh - var(--mobile-menu-top-offset));
             box-sizing: border-box;
             padding: var(--space-6) var(--space-16);
             border-top: var(--border-inverted);
@@ -94,7 +91,7 @@ header {
             z-index: 998;
             overflow-y: auto;
 
-            display: none;
+            display: flex;
             flex-direction: column;
             gap: var(--space-stack-md);
             align-items: flex-end;
@@ -102,7 +99,7 @@ header {
             opacity: 0;
             visibility: hidden;
             pointer-events: none;
-            transform: translateY(-100%);
+            transform: translateY(-1rem);
             transition:
                 opacity var(--header-transition-duration) var(--header-transition-ease),
                 transform var(--header-transition-duration) var(--header-transition-ease),
@@ -187,11 +184,11 @@ header {
 
         &.menu-open .nav-items,
         .nav-items.menu-open {
-            display: flex;
             opacity: 1;
             visibility: visible;
             pointer-events: auto;
             transform: translateY(0);
+            background: linear-gradient(rgba(252, 252, 252, 25%), rgba(252, 252, 252, 25%)), var(--solar-gradient);
         }
 
         &.menu-open .hamburger-menu span {
@@ -214,6 +211,11 @@ header.nav-alt-color {
     }
 
     .nav-container {
+
+        .nav-items {
+            border-top: var(--border-default);
+        }
+
         .hamburger-menu span {
             color: var(--text-color-inverted);
         }

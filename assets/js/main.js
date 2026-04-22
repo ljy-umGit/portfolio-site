@@ -24,10 +24,32 @@ document.addEventListener("DOMContentLoaded", () => {
   const navContainer = document.querySelector(".nav-container");
   const navItems = document.querySelector(".nav-items");
   const siteHeader = document.querySelector(".site-header");
+  const mainContent = document.querySelector("main");
+  const footer = document.querySelector("footer");
+  const pageBody = document.body;
+  const pageRoot = document.documentElement;
+  let smoothScrollTo;
 
   if (menuBtn && navContainer && navItems) {
     const menuIcon = menuBtn.querySelector("span");
     const desktopQuery = window.matchMedia("(min-width: 768px)");
+
+    // Lock scroll when nav menu opens
+    const setScrollLock = (isLocked) => {
+      if (!pageBody) {
+        return;
+      }
+
+      pageBody.style.overflow = isLocked ? "hidden" : "";
+      if (pageRoot) {
+        pageRoot.style.overflow = isLocked ? "hidden" : "";
+      }
+
+      if (smoothScrollTo && typeof smoothScrollTo.paused === "function") {
+        smoothScrollTo.paused(isLocked);
+      }
+    };
+
     const syncMobileMenuOffset = () => {
       if (!siteHeader) {
         return;
@@ -45,6 +67,11 @@ document.addEventListener("DOMContentLoaded", () => {
       if (menuIcon) {
         menuIcon.textContent = "close";
       }
+
+      // Element Behind inaccessible when menu opened
+      mainContent?.setAttribute("inert", "");
+      footer?.setAttribute("inert", "");
+      setScrollLock(true); // Lock scroll when nav menu opens
     };
 
     const closeMenu = () => {
@@ -54,6 +81,11 @@ document.addEventListener("DOMContentLoaded", () => {
       navContainer.classList.remove("menu-open");
       navItems.classList.remove("menu-open");
       menuBtn.setAttribute("aria-expanded", "false");
+
+      // Element Behind accessible when menu is closed
+      mainContent?.removeAttribute("inert");
+      footer?.removeAttribute("inert");
+      setScrollLock(false); // Unlock scroll when nav menu opens
     };
 
     menuBtn.addEventListener("click", () => {
@@ -219,7 +251,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // GSAP Animations
   gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
-  const smoothScrollTo = ScrollSmoother.create({
+  smoothScrollTo = ScrollSmoother.create({
     smooth: 2,
     effects: true,
     smoothTouch: 0.2,
