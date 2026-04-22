@@ -5,15 +5,20 @@
         <img class = "logo-blk" src="assets/images/logo-blk.svg">
         </a>
     </div>
-    <nav class="nav-container">
-        <div class = "style-switch">
-            <label for = "styles"></label>
-            <select id = "styles">
-                <option value = "solaris">Theme: Solaris</option>
-                <option value = "brutalism">Theme: Brutalism</option>
-            </select>
+    <nav class="nav-container nav-container-responsive">
+        <button type="button" class = "hamburger-menu" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-items-panel">
+            <span class="material-symbols-outlined">menu</span>
+        </button>
+        <div class = "nav-items" id="nav-items-panel">
+            <div class = "style-switch">
+                <label for = "styles"></label>
+                <select id = "styles">
+                    <option value = "solaris">Theme: Solaris</option>
+                    <option value = "brutalism">Theme: Brutalism</option>
+                </select>
+            </div>
+            <a href="https://www.junyandesign.com/about" class = "nav-btn">About</a>
+            <a href="https://drive.google.com/file/d/15Zz7aYeALv6J9eZPsAL-Vu1CBBvx-wUI/view" class = "nav-btn">Resume</a>
         </div>
-        <a href="https://www.junyandesign.com/about" class = "nav-btn">About</a>
-        <a href="https://drive.google.com/file/d/15Zz7aYeALv6J9eZPsAL-Vu1CBBvx-wUI/view" class = "nav-btn">Resume</a>
     </nav>
 </header>
