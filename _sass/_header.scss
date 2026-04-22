@@ -1,5 +1,6 @@
 header {
     position: fixed;
+    --mobile-menu-top-offset: calc(var(--space-6)*2 + 2rem); //Offseting for mobile nav menu
 
     display: flex;
     flex-direction: row;
@@ -61,6 +62,8 @@ header {
         .hamburger-menu {
             display: flex;
             align-items: center;
+            position: relative;
+            z-index: 1000;
             width: auto;
             height: auto;
             background-color: transparent;
@@ -73,18 +76,23 @@ header {
                 font-size: var(--text-size-h3);
                 text-decoration: none;
             }
+
         }
 
         .nav-items {
-            position: absolute;
-            top: calc(100% + var(--space-2));
+            position: fixed;
+            top: var(--mobile-menu-top-offset);
             right: 0;
-            min-width: max-content;
-            padding: var(--space-3);
-            border: var(--border-inverted);
-            border-radius: 0.75rem;
-            backdrop-filter: blur(10px);
-            background: rgba(0, 0, 0, 0.15);
+            left: 0;
+            height: auto;
+            max-height: calc(100dvh - var(--mobile-menu-top-offset));
+            box-sizing: border-box;
+            padding: var(--space-6) var(--space-16);
+            border-top: var(--border-inverted);
+            border-radius: 0;
+
+            z-index: 998;
+            overflow-y: auto;
 
             display: none;
             flex-direction: column;
@@ -94,7 +102,7 @@ header {
             opacity: 0;
             visibility: hidden;
             pointer-events: none;
-            transform: translateY(-0.25rem);
+            transform: translateY(-100%);
             transition:
                 opacity var(--header-transition-duration) var(--header-transition-ease),
                 transform var(--header-transition-duration) var(--header-transition-ease),
@@ -103,6 +111,7 @@ header {
             .style-switch {
                 position: relative;
                 display: block;
+                align-self: flex-end;
                 transition: var(--button-transition);
 
                 select {
@@ -112,13 +121,13 @@ header {
 
                     font-size: var(--text-size-body);
                     line-height: var(--text-line-height-heading);
-                    color: var(--text-color-default);
+                    color: var(--color-neutral-0);
                     text-transform: capitalize;
                     width: fit-content;
                     padding: var(--space-2) var(--space-3);
                     min-height: 1rem;
                     background-color: transparent;
-                    border: var(--border-inverted);
+                    border: 1px solid var(--color-neutral-0);
                     border-radius: 0.75rem;
                     cursor: pointer;
                     transition: color var(--header-transition-duration) var(--header-transition-ease),
@@ -133,7 +142,7 @@ header {
 
             .style-switch:hover {
                 background-color: var(--color-neutral-0);
-                border-radius: 0.25rem;
+                border-radius: 0.75rem;
 
                 transform: var(--button-transform-hover);
                 transition: var(--button-transition);
@@ -151,12 +160,13 @@ header {
             .nav-btn {
                 display: block;
                 text-transform: uppercase;
-                text-align: center;
+                text-align: right;
                 text-decoration: none;
 
                 font-size: var(--text-size-h4);
                 color: var(--color-neutral-0);
                 width: max-content;
+                align-self: flex-end;
                 gap: 0.5rem;
                 padding: 0.5rem 0.8rem;
                 min-height: 1rem;
@@ -204,7 +214,11 @@ header.nav-alt-color {
     }
 
     .nav-container {
-        select {
+        .hamburger-menu span {
+            color: var(--text-color-inverted);
+        }
+
+        .nav-items .style-switch select {
             color: var(--text-color-inverted);
             border: var(--border-default);
         }
@@ -212,6 +226,10 @@ header.nav-alt-color {
         .nav-btn {
             color: var(--color-neutral-900);
         }
+    }
+
+   .hamburger-menu span {
+        color: var(--text-color-inverted);
     }
 }
 
@@ -227,12 +245,17 @@ header.nav-alt-color {
             position: static;
             top: auto;
             right: auto;
+            left: auto;
+            height: auto;
             min-width: 0;
+            width: auto;
             padding: 0;
             border: none;
             border-radius: 0;
             backdrop-filter: none;
             background: transparent;
+            z-index: auto;
+            overflow: visible;
 
             display: flex;
             flex-direction: row;
@@ -243,15 +266,11 @@ header.nav-alt-color {
             visibility: visible;
             pointer-events: auto;
             transform: none;
-        }
 
-        &.menu-open .nav-items,
-        .nav-items.menu-open {
-            display: flex;
-            opacity: 1;
-            visibility: visible;
-            pointer-events: auto;
-            transform: translateY(0);
+            .nav-btn {
+                text-align: center;
+                width: max-content;
+            }
         }
 
         &.menu-open .hamburger-menu span {

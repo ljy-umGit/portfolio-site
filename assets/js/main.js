@@ -23,10 +23,20 @@ document.addEventListener("DOMContentLoaded", () => {
   const menuBtn = document.querySelector(".hamburger-menu");
   const navContainer = document.querySelector(".nav-container");
   const navItems = document.querySelector(".nav-items");
+  const siteHeader = document.querySelector(".site-header");
 
   if (menuBtn && navContainer && navItems) {
     const menuIcon = menuBtn.querySelector("span");
     const desktopQuery = window.matchMedia("(min-width: 768px)");
+    const syncMobileMenuOffset = () => {
+      if (!siteHeader) {
+        return;
+      }
+
+      siteHeader.style.setProperty("--mobile-menu-top-offset", `${siteHeader.offsetHeight}px`);
+    };
+
+    syncMobileMenuOffset();
 
     const openMenu = () => {
       navContainer.classList.add("menu-open");
@@ -38,12 +48,12 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     const closeMenu = () => {
-      navContainer.classList.remove("menu-open");
-      navItems.classList.remove("menu-open");
-      menuBtn.setAttribute("aria-expanded", "false");
       if (menuIcon) {
         menuIcon.textContent = "menu";
       }
+      navContainer.classList.remove("menu-open");
+      navItems.classList.remove("menu-open");
+      menuBtn.setAttribute("aria-expanded", "false");
     };
 
     menuBtn.addEventListener("click", () => {
@@ -73,6 +83,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     window.addEventListener("resize", () => {
+      syncMobileMenuOffset();
+
       if (desktopQuery.matches) {
         closeMenu();
       }
