@@ -1,8 +1,8 @@
 <header class="site-header">
     <div class="logo">
         <a href="{{ '/' | relative_url }}" class = "homepage-link">
-        <img class = "logo-wht"src="assets/images/logo-wht.svg">
-        <img class = "logo-blk" src="assets/images/logo-blk.svg">
+        <img class="logo-wht" src="{{ '/assets/images/logo-wht.svg' | relative_url }}">
+        <img class="logo-blk" src="{{ '/assets/images/logo-blk.svg' | relative_url }}">
         </a>
     </div>
     <nav class="nav-container nav-container-responsive">
@@ -17,7 +17,11 @@
                     <option value = "brutalism">Theme: Brutalism</option>
                 </select>
             </div>
-            <a href="https://www.junyandesign.com/about" class = "nav-btn">About</a>
+            {% if page.url contains 'about' %}
+                <a href="{{ '/index.html' | relative_url }}" class="nav-btn">Works</a>
+            {% else %}
+                <a href="{{ '/pages/about.html' | relative_url }}" class="nav-btn">About</a>
+            {% endif %}
             <a href="https://drive.google.com/file/d/15Zz7aYeALv6J9eZPsAL-Vu1CBBvx-wUI/view" class = "nav-btn">Resume</a>
         </div>
     </nav>

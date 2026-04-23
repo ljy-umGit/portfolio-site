@@ -1,4 +1,8 @@
 ---
 ---
+@import "variables";
+@import "header";
+@import "footer";
 @import "main";
+@import "about";
 // Actual styling relocated to sass/_main.scss, this is now a entry file for Jekyll complier.

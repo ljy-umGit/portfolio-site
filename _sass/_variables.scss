@@ -1,6 +1,11 @@
 :root {
+    // Min-Max Screen Sizes
+    --max-screen-width: 1920px; // For ultra-wides
+    --min-screen-width: 390px; // iPhone standard
+
+    // Base Colors
     --color-neutral-0: #fcfcfc;
-    --color-neutral-400: #909093;
+    --color-neutral-400: #c3c3c3;
     --color-neutral-900: #1f1f1f;
 
     // Text Sizes - Base size in _main.scss
@@ -29,6 +34,7 @@
 
     //Border
     --border-default: 1px solid var(--color-neutral-900);
+    --border-low-vis: 1px solid var(--color-neutral-400);
     --border-inverted: 1px solid var(--color-neutral-0);
 
     //Section Divider

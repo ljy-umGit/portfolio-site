@@ -6,6 +6,11 @@ footer {
     padding: var(--space-card-padding);
     background: linear-gradient(rgba(252, 252, 252, 20%), rgba(252, 252, 252, 20%)), var(--solar-gradient);
 
+    // Base Screen Size
+    box-sizing: border-box;
+    min-width: var(--min-screen-width);
+    max-width: var(--max-screen-width);
+
     h2 {
         display: flex;
         align-items: center;

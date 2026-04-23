@@ -1,0 +1,209 @@
+//Hero
+.about-hero {
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-card-padding);
+    padding-bottom: 0;
+    gap: var(--space-stack-md);
+
+    img {
+        max-width: 50%;
+        border-radius: 1rem;
+        margin-top: var(--space-16);
+    }
+
+    .bio-container{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        word-wrap: break-word;
+        gap: var(--space-stack-lg);
+
+        .bio-content {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-stack-md);
+        }
+    }
+}
+
+// Skills
+.skills-section {
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-card-padding);
+    padding-bottom: 0;
+    gap: var(--space-stack-md);
+
+    .skills-contain {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-12);
+
+        .skill-category {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-stack-md);
+
+            ul {
+                display: flex;
+                flex-wrap: wrap;
+                gap: var(--space-stack-md);
+                list-style: none;
+
+                li {
+                    display: block;
+                    text-align: center;
+
+                    width: max-content;
+                    padding: var(--space-3) var(--space-5);
+
+                    border: var(--border-low-vis);
+                    border-radius: 2rem;
+                    background-color: transparent;
+                }
+            }
+        }
+    }
+}
+
+// Certificates
+.certifications-section {
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-card-padding);
+    padding-bottom: 0;
+    gap: var(--space-stack-md);
+
+    .cert-list {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-12);
+        align-items: flex-start;
+
+        .cert-item {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-stack-md);
+            padding: var(--space-6) var(--space-8);
+            border: var(--border-low-vis);
+            border-radius: 1rem;
+
+            a {
+                display: flex;
+                flex-direction: row;
+                gap: var(--space-4);
+                font-size: var(--text-size-h4);
+                color: var(--text-color-inverted);
+                display: flex;
+                flex-direction: row;
+                text-decoration: none;
+                align-items: center;
+            }
+        }
+    }
+}
+
+// Personal Section
+.personal-section {
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-card-padding);
+    gap: var(--space-stack-lg);
+
+    .section-overview {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-stack-md);
+    }
+
+    .images-container {
+        display: flex;
+        flex-direction: column;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        gap: var(--space-4);
+
+        li img {
+            max-width: 100%;
+            height: 100%;
+            border-radius: 1rem;
+            overflow: hidden;
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .about-hero {
+        display: grid;
+        grid-template-columns: 0.25fr 0.75fr;
+        gap: var(--space-16);
+        padding-top: 10rem;
+
+        img {
+            max-width: 100%;
+            margin-top: 0;
+        }
+    }
+
+    .skills-section {
+        display: grid;
+        grid-template-columns: 0.25fr 0.75fr;
+        gap: var(--space-16);
+
+        h2 {
+            justify-self: end;
+        }
+    }
+
+    .certifications-section .cert-list .cert-item {
+        padding: var(--space-6) var(--space-8);
+    }
+
+    .certifications-section {
+        display: grid;
+        grid-template-columns: 0.25fr 0.75fr;
+        gap: var(--space-16);
+
+        h2 {
+            justify-self: end;
+        }
+    }
+
+    .personal-section {
+        div {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-stack-md);
+            padding-bottom: var(--space-8);
+        }
+
+        .images-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-8);
+
+            li:last-child {
+                grid-column: 1 / -1;
+            }
+        }
+    }
+}
+
+body.page-about footer {
+// Inverted Footer style only on About page
+
+    border-top: var(--border-default);
+    background: transparent;
+}
+
+body.page-about footer h2,
+body.page-about footer p,
+body.page-about footer a {
+    color: var(--text-color-inverted);
+}
+
+body.page-about footer .divider-line {
+    border-top: var(--divider-line-inverted);
+}

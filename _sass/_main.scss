@@ -1,8 +1,3 @@
-/* Import variables from _variables.scss */
-@import "variables";
-@import "header";
-@import "footer";
-
 /* --- Mulish Regular --- */
 @font-face {
     font-family: 'Mulish';
@@ -33,7 +28,9 @@ body {
     // Base Screen Size
     display: flex;
     flex-direction: column;
-    min-width: 402px; /* For 16/17pro */
+    box-sizing: border-box;
+    min-width: var(--min-screen-width);
+    max-width: var(--max-screen-width);
 }
 
 // Font Properties
@@ -335,6 +332,7 @@ p {
         flex-direction: row;
         gap: var(--space-stack-md);
         align-items: center;
+        max-width: 100%;
 
         h5 {
             display: flex;
