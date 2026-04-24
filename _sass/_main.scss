@@ -379,7 +379,8 @@ p {
                 }
 
                 .intro-item {
-                font-weight: var(--text-weight-regular);
+                    font-size: var(--text-size-h4);
+                    font-weight: var(--text-weight-regular);
                 }
             }
 
@@ -398,7 +399,8 @@ p {
         align-items: center;
         max-width: 100%;
 
-        h5 {
+        h4 {
+            font-size: var(--text-size-h5);
             display: flex;
             align-items: center;
             gap: var(--space-stack-sm);
@@ -498,7 +500,8 @@ p {
         align-items: center;
         padding: 10rem 0 2rem 0;
 
-        h5 {
+        h4 {
+            font-size: var(--text-size-h5);
             display: flex;
             align-items: center;
             gap: var(--space-stack-sm);
