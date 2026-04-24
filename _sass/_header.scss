@@ -170,7 +170,7 @@ header {
                 width: max-content;
                 align-self: flex-end;
                 gap: 0.5rem;
-                padding: 0.5rem 0.8rem;
+                padding: var(--space-2) var(--space-4);
                 min-height: 1rem;
 
                 //Animation

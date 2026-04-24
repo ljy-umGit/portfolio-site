@@ -5,7 +5,8 @@
 
     // Base Colors
     --color-neutral-0: #fcfcfc;
-    --color-neutral-400: #c3c3c3;
+    --color-neutral-300: #d2d2d2;
+    --color-neutral-700: #9e9e9e;
     --color-neutral-900: #1f1f1f;
 
     // Text Sizes - Base size in _main.scss
@@ -87,4 +88,23 @@ html[data-theme="minimal-solaris"] {
 
     //Gradient
     --solar-gradient: linear-gradient(135deg, var(--flare) 0%, var(--solar) 100%);
+}
+
+html[data-theme="minimal-neobrutalism"]{
+    // Bg Color
+    --neobrutalism-wht: #eaeaea;
+
+    // Bg Grid Styles
+    --grid-size: 4rem;
+    --grid-color: var(--color-neutral-700);
+    --grid-line-weight: 1px;
+    --grid-bg: var(--neobrutalism-wht);
+
+    // Primary Palette
+    --miami-blue: #00B5C8;
+    --pastel-blue: #A0D8FB;
+
+    // Box Shadow
+    --shadow-header: 0 0.5rem 0 0 var(--color-neutral-900);
+    --shadow-default: 0.5rem 0.5rem 0 0 var(--color-neutral-900);
 }

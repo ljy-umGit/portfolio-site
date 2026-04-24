@@ -1,0 +1,144 @@
+html[data-theme="minimal-neobrutalism"] {
+    .site-header {
+        backdrop-filter: none;
+        background-color: var(--color-neutral-0);
+        border-bottom: var(--border-default);
+        box-shadow: var(--shadow-header);
+
+        // Theme-specific button layout change
+        padding: 0 var(--space-16);
+        height: fit-content;
+
+        // Button Padding Change
+        .nav-items {
+            gap: 0;
+
+            .style-switch {
+                align-self: center;
+
+                select {
+                padding: var(--space-6);
+                border: none;
+                border-radius: 0;
+                border-left: var(--border-default);
+                }
+            }
+
+            :nth-child(2) {
+                padding: var(--space-6);
+                border-right: var(--border-default);
+                border-left: var(--border-default);
+            }
+
+            :last-child {
+                padding: var(--space-6);
+                border-right: var(--border-default);
+            }
+        }
+    }
+    .site-footer {
+        border-top: var(--border-default);
+        background: var(--color-neutral-0);
+
+        h2, p, a {
+            color: var(--text-color-inverted);
+        }
+
+        .divider-line {
+            border-top: var(--divider-line-inverted);
+        }
+    }
+
+    body {
+        background-color: var(--grid-bg);
+        background-image:
+        // Horizontal Line
+        linear-gradient(var(--grid-color) var(--grid-line-weight), transparent var(--grid-line-weight)),
+        // Vertical line
+        linear-gradient(90deg, var(--grid-color) var(--grid-line-weight), transparent var(--grid-line-weight));
+        // Grid Size
+        background-size: var(--grid-size) var(--grid-size);
+
+        .background-home {
+            visibility: hidden;
+        }
+            .hero {
+            background: none;
+            gap: var(--space-10);
+
+            h1, h2, h3, h4, h5, p {
+                color: var(--color-neutral-900);
+            }
+
+            .hero-content {
+                width: 50%;
+                padding: 0; // Reset bottom padding
+                border: var(--border-default);
+                background-color: var(--color-neutral-0);
+                box-shadow: var(--shadow-default);
+                gap: 0;
+
+                > div {
+                    width: stretch;
+                    padding: var(--space-8);
+                    border-bottom: var(--border-default);
+                }
+
+                .intro-tabs {
+                    padding: var(--space-8);
+
+                    .tab-viewport {
+                        width: 100%;
+                    }
+
+                    .tab-btn {
+                        border: var(--border-default);
+                    }
+                }
+
+            }
+        }
+
+        .scroll-to-content {
+            border: var(--border-default);
+            background-color: var(--color-neutral-0);
+            box-shadow: var(--shadow-default);
+            padding: var(--space-2) var(--space-6);
+
+            .divider-line {
+                border-top: var(--divider-line-inverted);
+            }
+        }
+
+        .cards-contain {
+            padding-bottom: var(--space-24);
+
+            .card {
+                // padding: var(--space-8);
+                border: var(--border-default);
+                background-color: var(--color-neutral-0);
+                box-shadow: var(--shadow-default);
+                gap: 0;
+
+                .lightbox {
+                    border-radius: 0;
+                    border-right: var(--border-default);
+                }
+
+                .overview {
+                    height: stretch;
+                    width: stretch;
+                    padding: var(--space-8);
+                    justify-content: center;
+                }
+            }
+        }
+
+        .scroll-to-top {
+            border: var(--border-default);
+            background-color: var(--color-neutral-0);
+            box-shadow: var(--shadow-default);
+            padding: var(--space-2) var(--space-6);
+        }
+    }
+}
