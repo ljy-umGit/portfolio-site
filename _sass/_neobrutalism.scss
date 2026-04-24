@@ -1,4 +1,21 @@
 html[data-theme="minimal-neobrutalism"] {
+    // Custom Cursor Alt Style
+    .cursor {
+        background-color: transparent;
+        border: var(--border-default);
+        box-shadow: 2px 2px 0 var(--color-neutral-900);
+    }
+
+    // Alt skip link styles for keyboard nav
+    .skip-link {
+        background-color: var(--color-neutral-0);
+        color: var(--color-neutral-900);
+        border: var(--border-default);
+        border-radius: 0;
+        box-shadow: 2px 2px 0 var(--color-neutral-900);
+    }
+
+
     .site-header {
         backdrop-filter: none;
         background-color: var(--color-neutral-0);

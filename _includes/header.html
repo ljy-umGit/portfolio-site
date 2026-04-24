@@ -5,14 +5,14 @@
         <img class="logo-blk" src="{{ '/assets/images/logo-blk.svg' | relative_url }}" alt = "An inverted version of the porfolio site logo, constructed out of junyan's initials">
         </a>
     </div>
-    <nav class="nav-container nav-container-responsive">
+    <nav class="nav-container nav-container-responsive" aria-label="Main navigation">
         <button type="button" class = "hamburger-menu" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-items-panel">
             <span class="material-symbols-outlined">menu</span>
         </button>
         <div class = "nav-items" id="nav-items-panel">
             <div class = "style-switch">
-                <label for = "styles"></label>
-                <select id = "styles">
+                <label for="styles" class="screen-reader-label">Theme</label>
+                <select id="styles">
                     <option value = "solaris">Theme: Solaris</option>
                     <option value = "neobrutalism">Theme: Neobrutalism</option>
                 </select>

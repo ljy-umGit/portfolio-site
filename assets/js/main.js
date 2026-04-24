@@ -143,8 +143,9 @@ document.addEventListener("DOMContentLoaded", () => {
   // Typed.js H1 on homepage
   const typedTarget = document.getElementById("typed");
   const typedStrings = document.getElementById("typed-strings");
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches; // Halt animation in case of prefersReducedMotion is enabled
 
-  if (typedTarget && typedStrings && typeof Typed !== "undefined") {
+  if (typedTarget && typedStrings && typeof Typed !== "undefined" && !prefersReducedMotion) {
     new Typed("#typed", {
       stringsElement: "#typed-strings",
       typeSpeed: 55,

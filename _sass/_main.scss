@@ -16,6 +16,52 @@
     font-display: swap;
 }
 
+//Replace cursor w/ custom cursor on regular devices
+html, body, body * {
+    cursor: none !important;
+}
+
+// Disable custom cursor on touch devices
+@media (hover: none), (pointer: coarse) {
+    html, body, body * {
+        cursor: auto !important;
+    }
+}
+
+// Custom Cursor Element
+.cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(244, 245, 247, 0.8);
+    backdrop-filter: blur(4px);
+    box-shadow: 1px 1px 12px 1px rgba(100, 100, 100, 0.15);
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-9999px, -9999px);
+    z-index: 9999;
+}
+
+.skip-link {
+    position: fixed;
+    top: 0;
+    left: var(--space-4);
+    transform: translateY(-120%);
+    padding: var(--space-2) var(--space-4);
+    background-color: var(--color-neutral-0);
+    color: var(--color-neutral-900);
+    border: var(--border-default);
+    text-decoration: none;
+    z-index: 1001;
+}
+
+.skip-link:focus-visible {
+    transform: translateY(var(--space-2));
+}
+
 // Site-wide Defaults
 body {
     position: relative;
@@ -174,6 +220,18 @@ p {
 .tab-controls .tab-btn:has(~ .tab-btn:hover),
 .tab-controls .tab-btn:has(~ .tab-btn:focus-visible) {
     transform: translateX(calc(var(--tab-push-distance) * -1));
+}
+
+// Handles perfer reduced motion enabled users
+@media (prefers-reduced-motion: reduce) {
+    .tab-btn,
+    .tab-btn > p,
+    .tab-btn::before,
+    .hero .hero-content .intro-tabs .tab-viewport .tab-item.active {
+        transition: none !important;
+        animation: none !important;
+        transform: none !important;
+    }
 }
 
 .link-btn {

@@ -79,6 +79,19 @@
     --fileworks-gradient: linear-gradient(150deg, #e7f2ff 0%, #e7f2ff 100%);
     --bfhr-gradient: linear-gradient(150deg, #508fd9 0%, #403294 100%);
     // --godeals-gradient: linear-gradient(150deg, #19D2BC 0%, #BAF1EB 100%);
+
+    // Accessibility Utility Classes
+    .screen-reader-label {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+    }
 }
 
 html[data-theme="minimal-solaris"] {
@@ -105,6 +118,6 @@ html[data-theme="minimal-neobrutalism"]{
     --pastel-blue: #A0D8FB;
 
     // Box Shadow
-    --shadow-header: 0 0.5rem 0 0 var(--color-neutral-900);
-    --shadow-default: 0.75rem 0.75rem 0 0 var(--color-neutral-900);
+    --shadow-header: 0 0.5rem 0 0 var(--pastel-blue);
+    --shadow-default: 0.75rem 0.75rem 0 0 var(--miami-blue);
 }
