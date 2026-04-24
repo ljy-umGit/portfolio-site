@@ -9,6 +9,15 @@ html[data-theme="minimal-neobrutalism"] {
         padding: 0 var(--space-16);
         height: fit-content;
 
+        // Show black logo on white background (default + scrolled state)
+        .logo .logo-wht { opacity: 0; visibility: hidden; }
+        .logo .logo-blk { opacity: 1; visibility: visible; }
+
+        &.nav-alt-color {
+            // Overriding the border added when scrolled to case studies
+            .nav-container .nav-items { border-top: none; }
+        }
+
         // Button Padding Change
         .nav-items {
             gap: 0;
@@ -21,6 +30,7 @@ html[data-theme="minimal-neobrutalism"] {
                 border: none;
                 border-radius: 0;
                 border-left: var(--border-default);
+                color: var(--color-neutral-900);
                 }
             }
 
@@ -28,11 +38,13 @@ html[data-theme="minimal-neobrutalism"] {
                 padding: var(--space-6);
                 border-right: var(--border-default);
                 border-left: var(--border-default);
+                color: var(--color-neutral-900);
             }
 
             :last-child {
                 padding: var(--space-6);
                 border-right: var(--border-default);
+                color: var(--color-neutral-900);
             }
         }
     }
