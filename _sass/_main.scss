@@ -45,6 +45,11 @@ html, body, body * {
     z-index: 9999;
 }
 
+// Change the cursor color when scrolled to the case studies section
+html[data-theme="minimal-solaris"].case-studies-active .cursor {
+    border-color: var(--color-neutral-900);
+}
+
 .skip-link {
     position: fixed;
     top: 0;

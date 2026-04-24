@@ -268,7 +268,13 @@ document.addEventListener("DOMContentLoaded", () => {
     toggleClass: {
       targets: "header",
       className: "nav-alt-color"
-    }
+    },
+
+    // Change the cursor color when scrolled to the case studies section
+    onEnter: () => pageRoot?.classList.add("case-studies-active"),
+    onEnterBack: () => pageRoot?.classList.add("case-studies-active"),
+    onLeave: () => pageRoot?.classList.remove("case-studies-active"),
+    onLeaveBack: () => pageRoot?.classList.remove("case-studies-active")
   })
 
   // Sticky Project Section Bg
